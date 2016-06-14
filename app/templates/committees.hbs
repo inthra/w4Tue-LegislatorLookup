@@ -1,6 +1,13 @@
-<h2>List of Committees in the House and Senate</h2>
+<h3>List of Committees in the House:</h3>
 <ul>
-  {{#each model as |committee|}}
-    <li>{{committee.name}}</li>
+  {{#each model.house as |committee|}}
+    <li>{{#link-to 'subcommittees' committee.parent_committee_id}}{{committee.name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+<br>
+<h3>List of Committees in the Senate:</h3>
+<ul>
+  {{#each model.senate as |committee|}}
+    <li>{{#link-to 'subcommittees' committee.parent_committee_id}}{{committee.name}}{{/link-to}}</li>
   {{/each}}
 </ul>
